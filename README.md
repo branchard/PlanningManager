@@ -1,0 +1,4 @@
+PlanningManager
+===============
+
+PlanningManager in PHP
