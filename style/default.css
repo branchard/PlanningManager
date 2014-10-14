@@ -53,14 +53,68 @@ table {
 	outline: none;
 }
 
-/* LOGIN */
-.about {
+/* MAIN */
+/*TODO : Il faut factoriser le css */
+header
+{
+    position: relative;
+    height: 73px;
+    padding: 0 0;
+	background: #eee;
+	background: rgba(250, 250, 250, 0.8);
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+	background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+	background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+	-webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 6px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+header #title
+{
+    height:73px;
+    font: 38px/73px 'Lucida Grande', Arial, sans-serif;
+	text-align: center;
+    color: #B4B4B4;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+    font-weight: bold;
+}
+
+#default-nav
+{
+    position: relative;
+    height: 100%;
+    width: 300px;
+    background: #eee;
+	background: rgba(250, 250, 250, 0.8);
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+	background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+	background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+	-webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.2) , inset 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px rgba(255, 255, 255, 0.3);
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.2) , inset 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px rgba(255, 255, 255, 0.3);
+}
+
+#login-form-section/* centrage verticale */
+{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 25px;/* pour l'esthetisme, sinon c'est mal centré */
+    bottom: 0;
+    left: 0;
+    width: 432px;
+    height: 90px;
+}
+
+footer{
 	position: absolute;
+    height: 35px;
 	bottom: 0px;
 	margin:auto;/* surement à enlever*/
-	padding: 8px 0px;
+	padding: 0px 0px;
 	width: 100%;
-	font: 10px/18px 'Lucida Grande', Arial, sans-serif;
+	font: 10px/35px 'Lucida Grande', Arial, sans-serif;
 	color: #666;
 	text-align: center;
 	text-shadow: 0 1px rgba(255, 255, 255, 0.25);
@@ -99,8 +153,7 @@ a:hover {
 
 .login {
 	position: relative;
-	top: 30%;
-	margin: 80px auto;
+	/*margin: 80px auto;*/
 	width: 400px;
 	padding-right: 32px;
 	font-weight: 300;
@@ -136,6 +189,22 @@ input[type=text]:focus, input[type=password]:focus {
 	color: white;
 	background: rgba(0, 0, 0, 0.1);
 	outline: 0;
+}
+
+::-webkit-input-placeholder { /* selecteur des placeholder pour chrome */
+    opacity:  .2;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    opacity:  .2;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    opacity:  .2;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    opacity:  .2;
 }
 
 label {
@@ -199,18 +268,24 @@ label {
 	border: 0;
 	border-radius: 24px;
 	cursor: pointer;
-	transition-property: box-shadow;
-	transition-duration: .5s; /*la on peut le mettre en milliseconde*/
+	/*transition-property: box-shadow;*/
+	/*transition-duration: .5s;*/ /*la on peut le mettre en milliseconde*/
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.1);
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.1);
 }
 
-.login-button:hover {
+/*.login-button:hover
+{
+    
+}*/
+
+/*.login-button:hover {
+    
 	transition-property: box-shadow;
 	transition-duration: .5s;
 	-webkit-box-shadow: inset 0 0px 10px rgba(13, 119, 150, 0.5), 0 1px rgba(0, 162, 211, 0.5);
 	box-shadow: inset 0 0px 10px rgba(13, 119, 150, 0.5), 0 1px rgba(0, 162, 211, 0.5);
-}
+}*/
 .login-button:before {
 	content: '';
 	position: absolute;
@@ -226,16 +301,29 @@ label {
 	background-image: linear-gradient(to bottom, #00a2d3, #0d7796);
 	-webkit-box-shadow: inset 0 0 0 1px #00a2d3, 0 0 0 5px rgba(0, 0, 0, 0.16);
 	box-shadow: inset 0 0 0 1px #00a2d3, 0 0 0 5px rgba(0, 0, 0, 0.16);
+    /*transition-property: background-image;
+    transition-duration: .5s;*/ /*cette transition ne fonctionne pas */
 }
-.login-button:active:before {
+.login-button:hover:before
+{
 	background: #0591ba;
 	background-image: -webkit-linear-gradient(top, #0591ba, #00a2d3);
 	background-image: -moz-linear-gradient(top, #0591ba, #00a2d3);
 	background-image: -o-linear-gradient(top, #0591ba, #00a2d3);
 	background-image: linear-gradient(to bottom, #0591ba, #00a2d3);
 }
+
+.login-button:active:before
+{
+	background: #0591ba;
+	background-image: -webkit-linear-gradient(top, #2398ba, #4ac3e8);
+	background-image: -moz-linear-gradient(top, #2398ba, #4ac3e8);
+	background-image: -o-linear-gradient(top, #2398ba, #4ac3e8);
+	background-image: linear-gradient(to bottom, #2398ba, #4ac3e8);
+}
+
 .login-button:after {
-	content: '';
+	content: '';/* marche pas */
 	position: absolute;
 	top: 15px;
 	left: 12px;
@@ -245,6 +333,23 @@ label {
 }
 
 /*Aniamtion au chargement (j'ai pas eu le courage de tester sous IE)*/
+header{/*Pas sur que tout ce bordel fonctionne avec tous les navigateurs */
+	animation-name: header;
+	animation-duration: 1.5s;
+	-webkit-animation-name: header;
+	-webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes header{
+	0%{ top:-80px; }
+	100%{ top:0; }
+}
+
+@keyframes header{
+	0%{ top:-80px; }
+	100%{ top:0; }
+}
+
 #main-login{/*Pas sur que tout ce bordel fonctionne avec tous les navigateurs */
 	animation-name: mainlogin;
 	animation-duration: 1.5s;
