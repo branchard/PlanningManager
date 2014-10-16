@@ -34,7 +34,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
         $prenom = $prenom_array[array_rand($prenom_array, 1)];
         $prepare_statement->bindParam('PRENOM', $prenom);
         $prepare_statement->bindParam('LOGIN', $_POST['login']);
-        $prepare_statement->bindParam('PWD', $_POST['password']);
+        $prepare_statement->bindParam('PWD', sha1($_POST['password']));// hashage du mdp
         $prepare_statement->execute();
 
         $prepare_statement = null;

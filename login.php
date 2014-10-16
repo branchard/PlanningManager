@@ -1,20 +1,10 @@
-<!--
-define('USER',"login");
-define('PASSWD',"votre password");
-define('SERVER',"dbmary");
-define('Base',"votre base");
+<?php
+define('ROOT_PATH', './');
+define('INCLUDES_PATH', ROOT_PATH . 'includes/');
+require INCLUDES_PATH . 'connect.php';
+if (isset($_POST['login']) && isset($_POST['password'])) {
 
-function connect_bd(){
-	$dsn="mysql:dname=".BASE.";host=".SERVER;
-		try{
-		$connexion=new PDO($dsn,USER,PASSWD);
-		}
-		catch(PDOException $e){
-		printf("Échec de connexion : %s\n, $e->getMessage());
-		exit();
-		}
-	return $connexion;
+} else {
+
 }
-
--->
-	
+?>
