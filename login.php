@@ -3,7 +3,6 @@ session_start();
 define('ROOT_PATH', './');
 define('INCLUDES_PATH', ROOT_PATH . 'includes/');
 require INCLUDES_PATH . 'connect.php';
-include INCLUDES_PATH . 'html_redirect.php';
 if (isset($_POST['login']) && isset($_POST['password']) && $_POST['login'] != '' && $_POST['password'] != '') {
     // essayons d'éviter les injections sql de préférence :D
     //if (!empty($connection->query('select idU from User where LoginU = \'' . $_POST['login'] . '\' AND PasswordHashU = \'' . sha1($_POST['password']) . '\'')->fetch()[0]))// check mode de passe et login
@@ -20,9 +19,9 @@ if (isset($_POST['login']) && isset($_POST['password']) && $_POST['login'] != ''
         header('Location: ./manager.php');
     }
     else{
-        header('Location: ./index.php?reason=login_bad');//redirection si mauvais mdp
+        header('Location: ./?reason=login_bad');//redirection si mauvais mdp
     }
 } else {
-    header('Location: ./index.php?reason=login_missed');// redirection si il n'a pas utilisé le formulaire
+    header('Location: ./?reason=login_missed');// redirection si il n'a pas utilisé le formulaire
 }
 ?>
