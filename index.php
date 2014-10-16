@@ -1,6 +1,9 @@
 <?php
+session_start();
 define('ROOT_PATH', './');
 define('INCLUDES_PATH', './includes/');
+if(!isset($_SESSION['id']))
+{
 include INCLUDES_PATH . 'header.php'; ?>
 <section id="login-form-section">
     <?php
@@ -35,4 +38,10 @@ include INCLUDES_PATH . 'header.php'; ?>
         </p>
     </form>
 </section>
-<?php include INCLUDES_PATH . 'footer.php'; ?>
+<?php include INCLUDES_PATH . 'footer.php';
+}
+else
+{
+    header('Location: ./manager.php');
+}
+?>

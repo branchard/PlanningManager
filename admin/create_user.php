@@ -2,7 +2,7 @@
 define('ROOT_PATH', '../');
 define('INCLUDES_PATH', ROOT_PATH . 'includes/');// on peut faire comme ça aussi
 require INCLUDES_PATH . 'connect.php';
-if (isset($_POST['login']) && isset($_POST['password'])) {
+if (isset($_POST['login']) && isset($_POST['password']) && $_POST['login'] != '' && $_POST['password'] != '') {
     if (empty($connection->query('select LoginU from User where LoginU = \'' . $_POST['login'] . '\'')->fetch()[0])) { // pour éviter les doublon, il faut aussi une contrainte dans la bdd
         $nom_array = array(
             'Dupond',
@@ -22,7 +22,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
             'Sylvie',
             'Joe',
             'Lara',
-            'Margane',
+            'Morgane',
             'Brice',
             'Willie',
             'Karim',
