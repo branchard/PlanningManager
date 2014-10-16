@@ -107,6 +107,23 @@ header #title
     height: 90px;
 }
 
+#login_reason_info_wrapper
+{
+    overflow: hidden;
+}
+
+#login_reason_info/* Pour l'affichage d'un message d'erreur */
+{
+    position: relative;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 15px;
+    font-weight: 300;
+	color: #cb4444;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8);
+    text-align: center;  
+    margin-bottom: 10px;
+}
+
 #warning-section
 {
     position: absolute;
@@ -369,6 +386,26 @@ header{/*Pas sur que tout ce bordel fonctionne avec tous les navigateurs */
 
 @keyframes header{
 	0%{ top:-80px; }
+	100%{ top:0; }
+}
+
+#login_reason_info
+{
+    animation-name: login_reason_info;
+	animation-duration: 2s;
+	-webkit-animation-name: login_reason_info;
+	-webkit-animation-duration: 2s;
+}
+
+@-webkit-keyframes login_reason_info{
+	0%{ top:-20px; }
+    50%{ top:-20px; }
+	100%{ top:0; }
+}
+
+@keyframes login_reason_info{
+	0%{ top:-20px; }
+    50%{ top:-20px; }
 	100%{ top:0; }
 }
 
