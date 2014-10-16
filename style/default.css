@@ -107,6 +107,28 @@ header #title
     height: 90px;
 }
 
+#warning-section
+{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 432px;
+    height: 90px;
+}
+
+#warning-section h2
+{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 32px;
+    font-weight: 300;
+	color: #a8a7a8;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
 footer{
 	position: absolute;
     height: 35px;

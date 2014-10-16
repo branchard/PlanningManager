@@ -1,4 +1,7 @@
-<?php include 'includes/header.php'; ?>
+<?php 
+define('ROOT_PATH', './');
+define('INCLUDES_PATH', './includes/'); 
+include INCLUDES_PATH.'header.php'; ?>
 	<section id="login-form-section">
             <form id="main-login" method="post" action="login.php" class="login">
                 <p>
@@ -16,4 +19,4 @@
                     </p>
             </form>
         </section>
-<?php include 'includes/footer.php'; ?>
+<?php include INCLUDES_PATH.'footer.php'; ?>
