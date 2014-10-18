@@ -5,11 +5,29 @@
     <title>Default template</title>
     <link rel="stylesheet" href="../style/default.css">
     <!-- <script src="script.js"></script> -->
+    <script type="text/javascript" src="../script/jsSimpleDatePickr.js"></script>
+	<script type="text/javascript" src="../script/jsSimpleDatePickrInit.js"></script>
 </head>
 <body>
 <header>
     <h1 id="title">Planning Manager</h1>
 </header>
+
+
+
+
+<p>Date : <input type="text" value="" name="date2" id="champ_date2" size="12" maxlength="10"></p>
+<div id="calendarMain2"></div>
+<script type="text/javascript">
+//<![CDATA[
+calInit("calendarMain2", "Calendrier", "champ_date2", "jsCalendar", "day", "selectedDay");
+//]]>
+</script>
+
+
+
+
+
 <section id="manager-section">
     <table>
         <tr>
