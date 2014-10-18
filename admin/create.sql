@@ -2,6 +2,7 @@
 DROP TABLE User;
 DROP TABLE Activity;
 DROP TABLE Day;
+DROP TABLE ActiDay;
 
 CREATE TABLE User (
   IdU           TINYINT(2) NOT NULL AUTO_INCREMENT, -- max 10 user
@@ -21,7 +22,10 @@ CREATE TABLE Activity (
 
 CREATE TABLE Day (
   DateD DATE NOT NULL,
-  IdU   TINYINT(2),
-  IdA   TINYINT(2),
   PRIMARY KEY (DateD)
+);
+
+CREATE TABLE ActiDay (
+  IdA TINYINT REFERENCES IdA(Activity),
+  DateD DATE REFERENCES DateD(Day)
 );
