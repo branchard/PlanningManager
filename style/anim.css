@@ -1,0 +1,52 @@
+/*Aniamtion au chargement (j'ai pas eu le courage de tester sous IE)*/
+header{/*Pas sur que tout ce bordel fonctionne avec tous les navigateurs */
+	animation-name: header;
+	animation-duration: 1.5s;
+	-webkit-animation-name: header;
+	-webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes header{
+	0%{ top:-80px; }
+	100%{ top:0; }
+}
+
+@keyframes header{
+	0%{ top:-80px; }
+	100%{ top:0; }
+}
+
+
+#main-login{/*Pas sur que tout ce bordel fonctionne avec tous les navigateurs */
+	animation-name: mainlogin;
+	animation-duration: 1.5s;
+	-webkit-animation-name: mainlogin;
+	-webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes mainlogin{
+	0%{ left:-2000px; }
+	100%{ left:0; }
+}
+
+@keyframes mainlogin{
+	0%{ left:-2000px; }
+	100%{ left:0; }
+}
+
+footer{/*Pas sur que tout ce bordel fonctionne avec tous les navigateurs */
+	animation-name: footer;
+	animation-duration: 1.5s;
+	-webkit-animation-name: footer;
+	-webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes footer{
+	0%{ bottom:-50px; }
+	100%{ bottom:0; }
+}
+
+@keyframes footer{
+	0%{ bottom:-50px; }
+	100%{ bottom:0; }
+}
