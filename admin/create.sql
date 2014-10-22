@@ -9,7 +9,7 @@ CREATE TABLE User (
   NomU          VARCHAR(40),
   PrenomU       VARCHAR(40),
   LoginU        VARCHAR(40),
-  PasswordHashU VARCHAR(40), -- SHA-1 hash
+  PasswordHashU VARCHAR(255),
   PRIMARY KEY (IdU)
 );
 
