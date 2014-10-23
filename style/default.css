@@ -52,6 +52,12 @@ table {
 *:focus {/* pour enlver l'horible bordure au focus */
 	outline: none;
 }
+/* COLORS */
+.red
+{
+	color: red;
+}
+
 
 /* MAIN */
 /*TODO : Il faut factoriser le css */
@@ -76,6 +82,13 @@ header #title
     font: 38px/73px 'Lucida Grande', Arial, sans-serif;
 	text-align: center;
     color: #B4B4B4;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+    font-weight: bold;
+}
+
+header #title a
+{
+	color: #B4B4B4;
     text-shadow: 0 1px rgba(255, 255, 255, 0.25);
     font-weight: bold;
 }
