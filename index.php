@@ -7,7 +7,6 @@ if (!isset($_SESSION['id'])) {
         $noAnim = true;
     }
     include INCLUDES_PATH . 'header.php';
-    // include INCLUDES_PATH . '/admin/'
      ?>
     <section id="login-form-section">
         <?php
