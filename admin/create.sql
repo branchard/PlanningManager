@@ -29,3 +29,7 @@ CREATE TABLE ActiDay (
   IdA TINYINT REFERENCES IdA(Activity),
   DateD DATE REFERENCES DateD(Day)
 );
+
+-- alter table ActiDay add(
+--   constraint KFINSc.. foreign key (numLicence) REFERENCES JOUEUR (numLicence)
+--   );
