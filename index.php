@@ -6,7 +6,9 @@ if (!isset($_SESSION['id'])) {
     if(isset($_GET['reason'])) {
         $noAnim = true;
     }
-    include INCLUDES_PATH . 'header.php'; ?>
+    include INCLUDES_PATH . 'header.php';
+    // include INCLUDES_PATH . '/admin/'
+     ?>
     <section id="login-form-section">
         <?php
         if (isset($_GET['reason'])) {
@@ -27,7 +29,7 @@ if (!isset($_SESSION['id'])) {
         <form id="main-login" method="post" action="login.php" class="login">
             <p>
                 <label for="login">Username:</label>
-                <input type="text" name="login" id="login" placeholder="Jean Mouloude"><!-- Faudrait que le place holder disparraisse au clic -->
+                <input type="text" name="login" id="login" placeholder="Jean"><!-- Faudrait que le place holder disparraisse au clic -->
             </p>
 
             <p>
