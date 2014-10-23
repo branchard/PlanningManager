@@ -422,7 +422,7 @@ label {
 
 /*-----------CSS du calendrier---------------*/
 #calendarMain1, #calendarMain2{
-    margin-left: 20%;
+    margin-left: 45%;
 }
 /* conteneur calendrier */
 .calendarWrap{
@@ -431,9 +431,10 @@ label {
     z-index: 1000;
     width: 210px;
     padding: 5px 10px 10px 10px;
-    background-color: #2e373f;
+    background: #373737 url("img/bg.png") 0 0 repeat;
+	border-radius:10px;
+    /*background-color: #2e373f;*/
     /*background-color: rgba(46, 55, 63, 0.95);*/
-    border-radius: 10px;
     -moz-box-shadow: 0 0 10px #555;
     -webkit-box-shadow: 0 0 10px #555;
     box-shadow: 0 0 10px #555;
@@ -443,16 +444,29 @@ label {
 #calendarMain1 > input, #calendarMain2 > input{
     display: block;
     width: 100px;
-    height: 22px;
-    padding-top: 2px;
-    background-color: #2e373f;
+    height: 30px;
+    padding-top: 0px;
+    /*background-color: #2e373f;*/
+    background: #373737 url("img/bg.png") 0 0 repeat;
     color: #fff;
-    border-radius: 5px;
-    border: none;
+    -moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border: 1px solid #ffffff;
 }
 #calendarMain1 > input:hover, #calendarMain2 > input:hover{
     background-color: #2673cb;
 }
+/*Date*/
+#date{
+	margin-left: 41%;
+}
+#date #champ_date{
+    width: 100px;
+    height: 30px;
+}
+
+
 /* navigation dans le calendrier */
 .calendarWrap ul{
     margin: 5px 0 10px 0;
