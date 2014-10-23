@@ -23,8 +23,18 @@
 calInit("calendarMain2", "Calendrier", "champ_date", "jsCalendar", "day", "selectedDay");
 //]]>
 </script>
-
-
+<?php
+	$modif = False;
+	if(!isset($_GET['modif'])){
+		echo "<input type='button' id ='bmodif' name='bouton_modifier' value='Modifier' onclick='alert('Clic sur l'image');')'";
+	}
+	else{
+		echo "<input type='button' id ='bannul' name='bouton_annuler' value='Annuler' onclick='header('Location: 2.php?mavar=0')' >";
+		echo "<input type='button' id ='bvalid' name='bouton_valider' value='Valider' onclick='header('Location: 2.php?mavar=0')' >";
+	} 
+ 
+   ?>
+<input type="button" id ="bmodif" name="bouton_modifier" value="Modifier" onclick="" > 
 <footer>
     <p id="about-author">
         Flavian Mary - Benoit Branchard - Ludovic Gravaud

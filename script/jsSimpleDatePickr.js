@@ -19,6 +19,18 @@ me.setDate = function(dateStr){
 	me.dateSel = new Date(dateArr[2], dateArr[1], dateArr[0]);
 	me.dateDisp = new Date(dateArr[2], dateArr[1], dateArr[0]);
 }
+me.occuper = function(dateStr){
+	if(!dateStr) return 0;
+	var dateArr = dateStr.split('/');
+	if(isNaN(dateArr[0])) return 0;
+	today = new Date();
+	if(isNaN(dateArr[1])) dateArr[1] = today.getMonth();
+	else dateArr[1] = parseInt(dateArr[1], 10)-1;
+	if(isNaN(dateArr[2])) dateArr[2] = today.getFullYear();
+	else if(parseInt(dateArr[2], 10)<2000) dateArr[2] = parseInt(dateArr[2], 10)+2000;
+	me.dateSel = new Date(dateArr[2], dateArr[1], dateArr[0]);
+	me.dateDisp = new Date(dateArr[2], dateArr[1], dateArr[0]);
+}
 me.setMonth = function(val){
 	var v = parseInt(val, 10);
 	if(val.charAt(0)=='+' || val.charAt(0)=='-') v = me.dateDisp.getMonth()+v;
