@@ -37,7 +37,6 @@ if (isset($_POST['login']) && isset($_POST['password']) && $_POST['login'] != ''
         $pass=password_hash($_POST['password'], PASSWORD_DEFAULT);
         $prepare_statement->bindParam('PWD', $pass);// hashage du mdp
         $prepare_statement->execute();
-
         $prepare_statement = null;
         $connection = null;
 

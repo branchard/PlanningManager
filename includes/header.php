@@ -14,6 +14,6 @@
 </head>
 <body>
 <header>
-    <h1 id="title">Planning Manager</h1>
+    <h1 id="title"><a href="<?php echo constant('ROOT_PATH'); ?>">Planning Manager</a></h1>
 </header>
 <!-- Fin header.php -->
