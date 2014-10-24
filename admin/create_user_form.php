@@ -2,6 +2,7 @@
 define('ROOT_PATH', '../');
 define('INCLUDES_PATH', '../includes/');
 include INCLUDES_PATH . 'header.php'; ?>
+	<h2 class="red">ADMIN</h2>
     <section id="login-form-section">
         <form id="main-login" method="post" action="create_user.php" class="login">
             <p>
