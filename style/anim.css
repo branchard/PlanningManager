@@ -34,7 +34,7 @@ header{/*Pas sur que tout ce bordel fonctionne avec tous les navigateurs */
 	100%{ left:0; }
 }
 
-footer{/*Pas sur que tout ce bordel fonctionne avec tous les navigateurs */
+#footer-container{/*Pas sur que tout ce bordel fonctionne avec tous les navigateurs */
 	animation-name: footer;
 	animation-duration: 1.5s;
 	-webkit-animation-name: footer;

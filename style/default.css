@@ -26,10 +26,6 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
-body {
-	line-height: 1;
-}
-
 ol, ul {
 	list-style: none;
 }
@@ -61,6 +57,16 @@ table {
 
 /* MAIN */
 /*TODO : Il faut factoriser le css */
+.wrapper 
+{
+	position: relative;
+	width: 100%;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -35px;
+}
+
 header
 {
     position: relative;
@@ -110,7 +116,7 @@ header #title a
 
 #login-form-section/* centrage verticale */
 {
-    position: absolute;
+    position: absolute;/* à éviter mais c'est pour le centrage verticale */
     margin: auto;
     top: 0;
     right: 25px;/* pour l'esthetisme, sinon c'est mal centré */
@@ -208,9 +214,13 @@ header #title a
 
 }
 
-footer{
-	position: absolute;
-    height: 35px;
+.push, #footer-container
+{
+	height: 35px;
+}
+
+#footer-container{
+	position: relative;
 	bottom: 0px;
 	margin:auto;/* surement à enlever*/
 	padding: 0px 0px;
@@ -229,14 +239,20 @@ footer{
 	box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
+footer
+{
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
 body, .login-submit, .login-submit:before, .login-submit:after {
 	background: #373737 url("img/bg.png") 0 0 repeat;
 }
 
 body, html
 {
-	overflow: hidden;/* je penses que c'est super déguelasse de faire ça */
-	min-height: 100%;/* et ça */
+	height: 100%;
 }
 	
 body {

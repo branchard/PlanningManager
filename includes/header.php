@@ -13,6 +13,7 @@
     <!-- <script src="script.js"></script> -->
 </head>
 <body>
+<div class="wrapper">
 <header>
     <h1 id="title"><a href="<?php echo constant('ROOT_PATH'); ?>">Planning Manager</a></h1>
 </header>

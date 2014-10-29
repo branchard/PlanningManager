@@ -1,40 +1,44 @@
-<!-- Debut header.php -->
+
 <!doctype html>
 <html lang="fr">
-	<head>
-		<meta charset="utf-8">
-		<title>Default template</title>
-		<link rel="stylesheet" href="../style/default.css">
-		<!-- <script src="script.js"></script> -->
-	</head>
-	<body>
-        <header>
-            <h1 id="title">Planning Manager</h1>
-        </header>
-        <!-- Fin header.php -->
-        <section id="login-form-section">
-            <form id="main-login" method="post" action="login.php" class="login">
-                <p>
-                    <label for="login">Username:</label>
-                    <input type="text" name="login" id="login" placeholder="Jean Mouloude"><!-- Faudrait que le place holder disparraisse au clic -->
+<head>
+    <meta charset="utf-8">
+    <title>Default template</title>
+    <link rel="stylesheet" href="../style/default.css">
+    <link rel="stylesheet" href="../style/anim.css">    <!-- <script src="script.js"></script> -->
+</head>
+<body>
+<div class="wrapper">
+<header>
+    <h1 id="title"><a href="./">Planning Manager</a></h1>
+</header>
+<!-- Fin header.php -->
+    <section id="login-form-section">
+                <form id="main-login" method="post" action="login.php" class="login">
+            <p>
+                <label for="login">Username:</label>
+                <input type="text" name="login" id="login" placeholder="Jean"><!-- Faudrait que le place holder disparraisse au clic -->
+            </p>
+
+            <p>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="MotDePasse">
+            </p>
+
+            <p class="login-submit">
+                <button type="submit" class="login-button">Login</button>
+            </p>
+        </form>
+    </section>
+            <div class="push">
+        </div>
+        </div>
+        <footer>
+            <div id="footer-container">
+                <p id="about-author">
+                    Flavian Mary - Benoit Branchard - Ludovic Graveaud
                 </p>
-
-                    <p>
-                        <label for="password">Password:</label>
-                        <input type="password" name="password" id="password" placeholder="MotDePasse">
-                    </p>
-
-                    <p class="login-submit">
-                        <button type="submit" class="login-button">Login</button>
-                    </p>
-            </form>
-        </section>
-        <!-- Debut footer.php -->
-		<footer>
-			<p id="about-author">
-				Flavian Mary - Benoit Branchard - Ludovic Graveaud
-			</p>
-		</footer>
-	</body>
+            </div>
+        </footer>
+    </body>
 </html>
-<!-- Fin footer.php -->
