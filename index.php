@@ -3,9 +3,6 @@ session_start();
 define('ROOT_PATH', './');
 define('INCLUDES_PATH', './includes/');
 if (!isset($_SESSION['id'])) {
-    if(isset($_GET['reason'])) {
-        $noAnim = true;
-    }
     include INCLUDES_PATH . 'header.php';
      ?>
     <section id="login-form-section">
