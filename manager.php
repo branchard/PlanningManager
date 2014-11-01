@@ -5,6 +5,10 @@ define('INCLUDES_PATH', ROOT_PATH . 'includes/');
 require INCLUDES_PATH . 'connect.php';
 include INCLUDES_PATH . 'header.php';
 if (isset($_SESSION['id'])) {
+    // CONSTANTES
+    define('DAYSTART', 8);//heure de commancement de la journée
+    define('DAYFINISH', 18);//heure de fib de journée
+
     function datePickerInsert()
     {
         ?>
@@ -13,11 +17,12 @@ if (isset($_SESSION['id'])) {
                 <label for="date">Veuillez entrer une journée à inserer:</label>
                 <input type="date" name="date">
             </p>
+
             <p>
-                <button type="submit" >Go</button>
+                <button type="submit">Go</button>
             </p>
         </form>
-        <?php
+    <?php
     }
 
     function datePickerSelect($connection)
@@ -30,34 +35,53 @@ if (isset($_SESSION['id'])) {
                     <?php
                     $stmt = $connection->prepare('SELECT DateD FROM Day WHERE IdU = ?');
                     $stmt->execute(array($_SESSION['id']));
-                    while($row = $stmt->fetch())
-                    {
+                    while ($row = $stmt->fetch()) {
                         echo '<OPTION>' . $row['DateD'];
                     }
                     ?>
                 </select>
             </p>
+
             <p>
-                <button type="submit" >Go</button>
+                <button type="submit">Go</button>
             </p>
         </form>
     <?php
     }
-    if(isset($_POST['date']) && $_POST['date'] != '')
-    {
+
+    if (isset($_POST['date']) && $_POST['date'] != '') {
         // il faut tester si la date est une date valide
 
         $dateFormat = date($_POST['date']);
-        echo 'Vous voullez inserer la date '.$dateFormat;
+        echo 'Vous voullez inserer la date ' . $dateFormat;
         $stmt0 = $connection->prepare('SELECT COUNT(*) FROM Day WHERE IdU = ? and DateD = ?');
         $stmt0->execute(array($_SESSION['id'], $dateFormat));
         if ($stmt0->fetch()['COUNT(*)'] > 0) {// teste si la journé existe déja
             echo 'la date existe déja';
-        }
-        else {
-            echo 'la date n\'existe pas';
+        } else {
+            echo ' la date n\'existe pas';
             $stmt1 = $connection->prepare('INSERT INTO Day(DateD, IdU) VALUES (?, ?)');
-            $stmt1->execute(array($dateFormat, $_SESSION['id']));
+            $stmt1->execute(array($dateFormat, $_SESSION['id']));// on crée la journée
+
+            $currentHour = DAYSTART;// on va remplire la journée de repos
+
+            $stmt2 = $connection->prepare('INSERT INTO Hour (NmH, IdD, IdA) VALUES (:num, :idd, :ida)');
+            $stmt2->bindParam(':num', $num);
+            $stmt2->bindParam(':idd', $idd);
+            $stmt2->bindParam(':ida', $ida);
+
+            $ida = 4; // faudrait faire Select IdA from Activity Where NomA = 'repos';
+
+            $stmt3 = $connection->prepare('Select IdD from Day where IdU = ? and DateD = ?');
+            $stmt3->execute(array($_SESSION['id'], $dateFormat));
+            $idd = $stmt3->fetch()['IdD'];
+
+            while ($currentHour <= DAYFINISH) {
+                $num = $currentHour;
+
+                $stmt2->execute();
+                $currentHour++;
+            }
         }
     }
     ?>
@@ -74,15 +98,23 @@ if (isset($_SESSION['id'])) {
         $prepare_statement->execute(array($_SESSION['id']));
         if ($prepare_statement->fetch()['COUNT(*)'] == 0) {
             ?>
-        <p>Il semble que vous n'ayez pas encore déffinit de journée</p>
-        <?php
+            <p>Il semble que vous n'ayez pas encore déffinit de journée</p>
+            <?php
             datePickerInsert();
-        }
-        else
-        {
+        } else {
             echo 'vous avez des journées de définit';
             datePickerSelect($connection);
             datePickerInsert();
+        }
+        if (isset($_GET['displaydate']) && $_GET['displaydate'] != '') {
+            echo '<p>Affichage du '.$_GET['displaydate'].'</p>';
+            $stmt4 = $connection->prepare('select NomA from Activity natural join  Hour where IdD = (Select IdD from Day where DateD = ? and IdU = ?)');
+            $stmt4->execute(array($_GET['displaydate'] ,$_SESSION['id']));
+            $currentHour = DAYSTART;
+            while ($row = $stmt4->fetch()) {
+                echo '<p>'.$currentHour.'h - '.$row['NomA'].'</p>';
+                $currentHour++;
+            }
         }
         ?>
     </section>
