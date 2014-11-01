@@ -14,4 +14,6 @@ try {
     echo "Connection à MySQL impossible : ", $e->getMessage();
     die();
 }
+
+
 ?>

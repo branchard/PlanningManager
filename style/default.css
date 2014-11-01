@@ -208,6 +208,14 @@ header #title a
     position: relative;
 
 }
+
+#manager-section #login-info p, #manager-section #login-info a
+{
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+}
 #calendar
 {
     position: relative;

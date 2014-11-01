@@ -1,3 +1,5 @@
+INSERT INTO Admin VALUES ("root", "root");
+
 INSERT INTO Activity VALUES(1,"Java",1);
 INSERT INTO Activity VALUES(2,"Python",1);
 INSERT INTO Activity VALUES(3,"Anglais",1);

@@ -4,12 +4,17 @@ DROP TABLE Activity;
 DROP TABLE Day;
 DROP TABLE ActiDay;
 
+CREATE TABLE Admin (
+  Login VARCHAR(32),
+  Pass VARCHAR(32)
+);
+
 CREATE TABLE User (
   IdU           TINYINT(2) NOT NULL AUTO_INCREMENT, -- max 10 user
   NomU          VARCHAR(40),
   PrenomU       VARCHAR(40),
-  LoginU        VARCHAR(40),
-  PasswordHashU VARCHAR(255),
+  LoginU        VARCHAR(40) NOT NULL,
+  PasswordHashU VARCHAR(255) NOT NULL,
   PRIMARY KEY (IdU)
 );
 

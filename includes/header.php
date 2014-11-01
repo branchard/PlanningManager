@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Default template</title>
+    <title>Planning Manager</title>
     <link rel="stylesheet" href="<?php echo constant('ROOT_PATH'); ?>style/default.css">
 </head>
 <body>
