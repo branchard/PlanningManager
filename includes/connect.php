@@ -1,11 +1,11 @@
 <?php
-// database.php
+// il faut créer le fichier database.php avec :
 //$database = array(
 //    'driver' => 'mysql',
-//    'host' => '***',
-//    'login' => '***',
-//    'password' => '***',
-//    'database' => '***',
+//    'host' => 'localhost',
+//    'login' => 'toto',
+//    'password' => 'azerty1234',
+//    'database' => 'dbname',
 //);
 require 'database.php';
 try {
