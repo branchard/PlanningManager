@@ -20,21 +20,26 @@ time, mark, audio, video
 	font: inherit;
 	vertical-align: baseline;
 }
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table { /* met tous les tableaux avec des bordures blanche */
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -42,19 +47,24 @@ table { /* met tous les tableaux avec des bordures blanche */
 	border-style: solid;
 	border-color: white;
 }
+
 td { /* Met les lignes des tableau en blanc */
 	border-width:1px;
 	border-style: solid;
 	border-color: white;
+	text-align: center;
 }
+
 *:focus {/* pour enlver l'horible bordure au focus */
 	outline: none;
 }
+
 /* COLORS */
 .red
 {
 	color: red;
 }
+
 /* MAIN */
 /*TODO : Il faut factoriser le css */
 .wrapper 
@@ -66,6 +76,7 @@ td { /* Met les lignes des tableau en blanc */
 	height: 100%;
 	margin: 0 auto -35px;
 }
+
 header
 {
     position: relative;
