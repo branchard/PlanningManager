@@ -43,6 +43,15 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+	border-width:1px;
+	border-style: solid;
+	border-color: white;
+}
+
+td {
+	border-width:1px;
+	border-style: solid;
+	border-color: white;
 }
 
 *:focus {/* pour enlver l'horible bordure au focus */
