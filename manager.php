@@ -4,16 +4,9 @@ define('ROOT_PATH', './');
 define('INCLUDES_PATH', ROOT_PATH . 'includes/');
 require INCLUDES_PATH . 'connect.php';
 include INCLUDES_PATH . 'header.php';
-if (isset($_SESSION['id'])) {
-    // CONSTANTES
-    define('DAYSTART', 8);//heure de commancement de la journée
-    define('DAYFINISH', 20);//heure de fib de journée
+?>
 
-    function datePickerInsert()
-    {
-        ?>
-        
-        <script type="text/javascript">
+<script type="text/javascript">
                 $(function() {
                 $("#datepicker" ).datepicker({
                 beforeShowDay: function(date){
@@ -33,7 +26,17 @@ if (isset($_SESSION['id'])) {
    });
    </script>
 
-        <form method="post" action="manager.php">
+<?php
+
+if (isset($_SESSION['id'])) {
+    // CONSTANTES
+    define('DAYSTART', 8);//heure de commancement de la journée
+    define('DAYFINISH', 20);//heure de fib de journée
+
+    function datePickerInsert()
+    {
+        ?>
+            <form method="post" action="manager.php">
             <p>
                 <label for="date">Veuillez entrer une journée à inserer:</label>
                 <!--<input type="date" name="date">-->
