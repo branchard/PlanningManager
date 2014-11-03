@@ -1,13 +1,13 @@
 #------------------------------------------------------------
 #        Script MySQL.
 #------------------------------------------------------------
+DROP TABLE IF EXISTS Hour;
+DROP TABLE IF EXISTS Day;
 DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Activity;
-DROP TABLE IF EXISTS Day;
-DROP TABLE IF EXISTS Hour;
 
 CREATE TABLE User (
-  IdU           TINYINT      NOT NULL,
+  IdU           TINYINT      NOT NULL AUTO_INCREMENT,
   NomU          VARCHAR(40),
   PrenomU       VARCHAR(40),
   LoginU        VARCHAR(40)  NOT NULL,
@@ -52,9 +52,9 @@ ALTER TABLE Hour ADD CONSTRAINT FK_Hour_IdA FOREIGN KEY (IdA) REFERENCES Activit
 #        INSERT
 #------------------------------------------------------------
 
-INSERT INTO Activity VALUES (1, 'Java');
-INSERT INTO Activity VALUES (2, 'Python');
-INSERT INTO Activity VALUES (3, 'Anglais');
-INSERT INTO Activity VALUES (4, 'Repos');
-INSERT INTO Activity VALUES (5, 'Café');
-INSERT INTO Activity VALUES (6, 'PHP');
+-- INSERT INTO Activity VALUES (1, 'Java');
+-- INSERT INTO Activity VALUES (2, 'Python');
+-- INSERT INTO Activity VALUES (3, 'Anglais');
+-- INSERT INTO Activity VALUES (4, 'Repos');
+-- INSERT INTO Activity VALUES (5, 'Café');
+-- INSERT INTO Activity VALUES (6, 'PHP');
