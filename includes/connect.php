@@ -7,7 +7,7 @@
 //    'password' => 'azerty1234',
 //    'database' => 'dbname',
 //);
-require 'database.php';
+require INCLUDES_PATH.'database.php';
 try {
     $connection = new PDO($database['driver'] . ':host=' . $database['host'] . ';dbname=' . $database['database'], $database['login'], $database['password'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 } catch (Exception $e) {
