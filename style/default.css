@@ -53,6 +53,7 @@ td { /* Met les lignes des tableau en blanc */
 	border-style: solid;
 	border-color: white;
 	text-align: center;
+	vertical-align : middle;
 }
 
 *:focus {/* pour enlver l'horible bordure au focus */
