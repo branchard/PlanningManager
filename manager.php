@@ -7,15 +7,37 @@ include INCLUDES_PATH . 'header.php';
 if (isset($_SESSION['id'])) {
     // CONSTANTES
     define('DAYSTART', 8);//heure de commancement de la journée
-    define('DAYFINISH', 18);//heure de fib de journée
+    define('DAYFINISH', 20);//heure de fib de journée
 
     function datePickerInsert()
     {
         ?>
+        
+        <script type="text/javascript">
+                $(function() {
+                $("#datepicker" ).datepicker({
+                beforeShowDay: function(date){
+                var b = (date.getDay() >0);
+                var c = "";
+                if (!b) {
+                    c = "ui-state-disabled";
+                }
+         
+                d = new Date(2014, 11, 24)
+                if ((date >= d) && (date <= d)) {
+                    c = "ui-event";
+                }
+                return [b, c];
+                }
+      });
+   });
+   </script>
+
         <form method="post" action="manager.php">
             <p>
                 <label for="date">Veuillez entrer une journée à inserer:</label>
-                <input type="date" name="date">
+                <!--<input type="date" name="date">-->
+                <input type="date" id="datepicker" name="date"></p>
             </p>
 
             <p>
