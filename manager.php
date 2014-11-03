@@ -50,9 +50,8 @@ if (isset($_SESSION['id'])) {
     }
 
     if (isset($_POST['date']) && $_POST['date'] != '') {
-        // il faut tester si la date est une date valide
-
-        $dateFormat = date($_POST['date']);
+		
+        $dateFormat = date("Y-m-d", strtotime($_POST['date']));
         echo 'Vous voullez inserer la date ' . $dateFormat;
         $stmt0 = $connection->prepare('SELECT COUNT(*) FROM Day WHERE IdU = ? and DateD = ?');
         $stmt0->execute(array($_SESSION['id'], $dateFormat));
