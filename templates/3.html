@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Planning Manager</title>
+    <link rel="stylesheet" href="./style/default.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="wrapper">
+<header>
+    <h1 id="title"><a href="./">Planning Manager</a></h1>
+</header>
+<!-- Fin header.php -->
+ 
+<script type="text/javascript">
+                $(function() {
+                $("#datepicker" ).datepicker({
+                beforeShowDay: function(date){
+                var b = (date.getDay() >0);
+                var c = "";
+                if (!b) {
+                    c = "ui-state-disabled";
+                }
+         
+                d = new Date(2014, 11, 24)
+                if ((date >= d) && (date <= d)) {
+                   c = "ui-event";
+                }
+                return [b, c];
+                }
+      });
+   });
+   </script>
+ 
+    <section id="manager-section">
+        <div id="login-info">
+            <p>Bonjour Lara Durand</p>
+ 
+            <p>[</p><a href="./logout.php">deconnection</a>
+ 
+            <p>]</p>
+        </div>
+        vous avez des journées de définit        <form method="get" action="manager.php">
+            <p>
+                <label for="date">Veuillez selectionner une journée à afficher:</label>
+                <select name="displaydate" size="1">
+                    <OPTION>2014-11-28                </select>
+            </p>
+ 
+            <p>
+                <button type="submit">Go</button>
+            </p>
+        </form>
+                <form method="post" action="manager.php">
+            <p>
+                <label for="date">Veuillez entrer une journée à inserer:</label>
+                <!--<input type="date" name="date">-->
+                <input type="date" id="datepicker" name="date"></p>
+            </p>
+ 
+            <p>
+                <button type="submit">Go</button>
+            </p>
+        </form>
+    <p>Affichage du 2014-11-28</p><p>8h - Repos</p><p>9h - Repos</p><p>10h - Repos</p><p>11h - Repos</p><p>12h - Repos</p><p>13h - Repos</p><p>14h - Repos</p><p>15h - Repos</p><p>16h - Repos</p><p>17h - Repos</p><p>18h - Repos</p><p>19h - Repos</p> <p>20h - Repos</p>     </section>
+                <div class="push">
+                </div>
+                </div>
+                <footer>
+                        <div id="footer-container">
+                                <p id="about-author">
+                                        Flavian Mary - Benoit Branchard - Ludovic Graveaud
+                                </p>
+                        </div>
+                </footer>
+        </body>
+</html><!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Planning Manager</title>
+    <link rel="stylesheet" href="./style/default.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="wrapper">
+<header>
+    <h1 id="title"><a href="./">Planning Manager</a></h1>
+</header>
+<!-- Fin header.php -->
+ 
+<script type="text/javascript">
+                $(function() {
+                $("#datepicker" ).datepicker({
+                beforeShowDay: function(date){
+                var b = (date.getDay() >0);
+                var c = "";
+                if (!b) {
+                    c = "ui-state-disabled";
+                }
+         
+                d = new Date(2014, 11, 24)
+                if ((date >= d) && (date <= d)) {
+                   c = "ui-event";
+                }
+                return [b, c];
+                }
+      });
+   });
+   </script>
+ 
+    <section id="manager-section">
+        <div id="login-info">
+            <p>Bonjour Lara Durand</p>
+ 
+            <p>[</p><a href="./logout.php">deconnection</a>
+ 
+            <p>]</p>
+        </div>
+        vous avez des journées de définit        <form method="get" action="manager.php">
+            <p>
+                <label for="date">Veuillez selectionner une journée à afficher:</label>
+                <select name="displaydate" size="1">
+                    <OPTION>2014-11-28                </select>
+            </p>
+ 
+            <p>
+                <button type="submit">Go</button>
+            </p>
+        </form>
+                <form method="post" action="manager.php">
+            <p>
+                <label for="date">Veuillez entrer une journée à inserer:</label>
+                <!--<input type="date" name="date">-->
+                <input type="date" id="datepicker" name="date"></p>
+            </p>
+ 
+            <p>
+                <button type="submit">Go</button>
+            </p>
+        </form>
+    <p>Affichage du 2014-11-28</p><p>8h - Repos</p><p>9h - Repos</p><p>10h - Repos</p><p>11h - Repos</p><p>12h - Repos</p><p>13h - Repos</p><p>14h - Repos</p><p>15h - Repos</p><p>16h - Repos</p><p>17h - Repos</p><p>18h - Repos</p><p>19h - Repos</p> <p>20h - Repos</p>     </section>
+                <div class="push">
+                </div>
+                </div>
+                <footer>
+                        <div id="footer-container">
+                                <p id="about-author">
+                                        Flavian Mary - Benoit Branchard - Ludovic Graveaud
+                                </p>
+                        </div>
+                </footer>
+        </body>
+</html>
