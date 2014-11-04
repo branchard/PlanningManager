@@ -31,15 +31,15 @@ include INCLUDES_PATH . 'header.php';
 if (isset($_SESSION['id'])) {
     // CONSTANTES
     define('DAYSTART', 8);//heure de commancement de la journée
-    define('DAYFINISH', 20);//heure de fib de journée
+    define('DAYFINISH', 20);//heure de fin de journée
 
-    function datePickerInsert()
+
+   /* function datePickerInsert()
     {
         ?>
             <form method="post" action="manager.php">
             <p>
                 <label for="date">Veuillez entrer une journée à inserer:</label>
-                <!--<input type="date" name="date">-->
                 <input type="date" id="datepicker" name="date"></p>
             </p>
 
@@ -49,22 +49,29 @@ if (isset($_SESSION['id'])) {
         </form>
     <?php
     }
+    */
 
     function datePickerSelect($connection)
     {
         ?>
-        <form method="get" action="manager.php">
+     	<!--	<form method="get" action="manager.php">
             <p>
                 <label for="date">Veuillez selectionner une journée à afficher:</label>
                 <select name="displaydate" size="1">
-                    <?php
+                    <?php /*
                     $stmt = $connection->prepare('SELECT DateD FROM Day WHERE IdU = ?');
                     $stmt->execute(array($_SESSION['id']));
                     while ($row = $stmt->fetch()) {
                         echo '<OPTION>' . $row['DateD'];
                     }
-                    ?>
+                    */?>
                 </select>
+            </p> -->
+
+            <form method="get" action="manager.php">
+            <p>
+                <label for="date">Veuillez entrer une journée à inserer:</label>
+                <input type="date" id="datepicker" name="displaydate"></p>
             </p>
 
             <p>
@@ -74,9 +81,9 @@ if (isset($_SESSION['id'])) {
     <?php
     }
 
-    if (isset($_POST['date']) && $_POST['date'] != '') {
-		
-        $dateFormat = date("Y-m-d", strtotime($_POST['date']));
+    function createDate($date, $connection)
+    {	
+        $dateFormat = date("Y-m-d", strtotime($date));
         echo 'Vous voullez inserer la date ' . $dateFormat;
         $stmt0 = $connection->prepare('SELECT COUNT(*) FROM Day WHERE IdU = ? and DateD = ?');
         $stmt0->execute(array($_SESSION['id'], $dateFormat));
@@ -108,6 +115,7 @@ if (isset($_SESSION['id'])) {
             }
         }
     }
+
     ?>
     <section id="manager-section">
         <div id="login-info">
@@ -120,26 +128,40 @@ if (isset($_SESSION['id'])) {
         <?php
         $prepare_statement = $connection->prepare('SELECT COUNT(*) FROM Day WHERE IdU = ?');
         $prepare_statement->execute(array($_SESSION['id']));
-        if ($prepare_statement->fetch()['COUNT(*)'] == 0) {
+
+        //if ($prepare_statement->fetch()['COUNT(*)'] == 0) {
             ?>
-            <p>Il semble que vous n'ayez pas encore déffinit de journée</p>
+        <!--    <p>Il semble que vous n'ayez pas encore déffinit de journée</p> -->
             <?php
-            datePickerInsert();
-        } else {
-            echo 'vous avez des journées de définit';
+            // datePickerInsert();
+        //} else {
+         //   echo 'vous avez des journées de définit';
             datePickerSelect($connection);
-            datePickerInsert();
-        }
-        if (isset($_GET['displaydate']) && $_GET['displaydate'] != '') {
+            //datePickerInsert();
+        //}
+        if (isset($_GET['displaydate']) && $_GET['displaydate'] != '')
+        {
             echo '<p>Affichage du '.$_GET['displaydate'].'</p>';
             $stmt4 = $connection->prepare('select NomA from Activity natural join  Hour where IdD = (Select IdD from Day where DateD = ? and IdU = ?)');
             $stmt4->execute(array($_GET['displaydate'] ,$_SESSION['id']));
             $currentHour = DAYSTART;
-            while ($row = $stmt4->fetch()) {
-                echo '<p>'.$currentHour.'h - '.$row['NomA'].'</p>';
-                $currentHour++;
+            $cpt=0;
+				while ($row = $stmt4->fetch()) {
+					$cpt++;
+	                echo '<p>'.$currentHour.'h - '.$row['NomA'].'</p>';
+	                $currentHour++;
+            	}
+            	if($cpt<5)
+            	{
+            		createDate($_GET['displaydate'],$connection);
+            		$stmt4 = $connection->prepare('select NomA from Activity natural join  Hour where IdD = (Select IdD from Day where DateD = ? and IdU = ?)');
+	           		$stmt4->execute(array($_GET['displaydate'] ,$_SESSION['id']));
+	            	while ($row = $stmt4->fetch()) {
+	                echo '<p>'.$currentHour.'h - '.$row['NomA'].'</p>';
+	                $currentHour++;
+            		}
+            	}
             }
-        }
         ?>
     </section>
     <?php include INCLUDES_PATH . 'footer.php';
