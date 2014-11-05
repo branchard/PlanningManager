@@ -7,14 +7,21 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-	<script src="datepicker-fr.js"></script>
 </head>
 <body>
+	<?php
+		$reponse = $laconection->query('SELECT DateD FROM Day natural join Hour natural join User where IdU=?');
+		$reponse->execute(array($_GET['USER']));
+		$donnees = $reponse->fetch();
+		$lesDates = $donnees['DateD'];
+	?>
 <script type="text/javascript">
 	
 	$(function() {
 		$( "#datepicker" ).datepicker({
 			altField: "#datepicker",
+			changeMonth: true,
+			changeYear: true,
 			closeText: 'Fermer',
 			prevText: 'Précédent',
 			nextText: 'Suivant',
@@ -26,27 +33,37 @@
 			dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
 			weekHeader: 'Sem.',
 			dateFormat: 'yy-mm-dd',
+			yearRange: "2014:2018",
+			firstDay: 1,
 			beforeShowDay: function(date){
-			var b = (date.getDay() >-1);
 			var c = "";
-			if (!b) {
-				c = "ui-state-disabled";
-			}
-			d = new Date(2014, 11, 24)
-			if ((date >= d) && (date <= d)) {
-				c = "ui-event";
-			}
-			return [b,c];
+			var e = "Aucun évenement n'est prévu à cette date";
+			var pdate=[]
+			for(i=0;i<2000){
+				pdate[pdate.length]=new Date(2014,11,i)
+				/*d = new Date(2014, 11, 24)*/
+				if ((date >= d) && (date <= d)) {
+					c = "ui-event";
+					e = "Des évenements sont prévus à cette date"
+				}
+			return [true,c,e];
 			}
 		});
-		$( "#datepicker" ).datepicker( "option", "firstDay", 1 );
 	});
    </script>
 <header>
     <h1 id="title">Planning Manager</h1>
 </header>
-
+<?php
+while ($donnees = $reponse->fetch())
+{
+?>
 <p>Date: <input type="text" id="datepicker" size="30"></p>
+
+<?php
+}
+$reponse->closeCursor(); // Termine le traitement de la requête
+?>
 
 <p id="activity"> Activités : <select name="activity">
                     <option value="java">Java</option>
