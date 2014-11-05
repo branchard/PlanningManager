@@ -472,6 +472,7 @@ input[type=text]:focus, input[type=password]:focus {
 .ui-event, .ui-state-default{
 	background-color:red;
 }
+
 /*#ui-datepicker-div .ui-widget-header
 {
     border: 1px solid #B4B4B4;
