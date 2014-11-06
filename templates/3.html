@@ -3,36 +3,37 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Default template</title>
-		<link rel="stylesheet" href="../style/drapdrop.css">
+		<link rel="stylesheet" href="../style/default.css">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 	</head>
+	<header>
+		<h1 id="title">Planning Manager</h1>
+	</header>
 	<body>
 		<script type="text/javascript">
+			
+			var tom="../style/img/Vide.png";
+			
 			function allowDrop(ev) {
 				ev.preventDefault();
 			}
 
 			function drag(ev) {
-				/*ev.dataTransfer.setData("text", ev.target.id);*/
-				var src = ev.target.getAttribute('src');
-				var id = ev.target.getAttribute('id');
-				event.dataTransfer.setData("text/html", '<img id="'+id+'"src="' + src + '" draggable="true" ondragstart="drag(event)"/>');
+				tom=ev.target.getAttribute('src');
+				
 			}
 
 			function drop(ev) {
 				ev.preventDefault();
-				/*var data = ev.dataTransfer.getData("text");
-				ev.target.appendChild(document.getElementById(data));*/
 				var mylist = document.getElementById(ev.target.getAttribute('id'));
 				mylist.style.visibility = "visible";
-				var html = ev.dataTransfer.getData("text/html");
-				mylist.innerHTML += html;
+				mylist.src=tom;
+				tom="../style/img/Vide.png";
 				
 			}
-		</script>
-		<script type="text/javascript">
+			
 			$(function() {
 				$( "#datepicker" ).datepicker({
 					altField: "#datepicker",
@@ -64,86 +65,94 @@
 				});
 			});
 		</script>
-		<header>
-		<h1 id="title">Planning Manager</h1>
-		</header>
-			<p>Date: <input type="text" id="datepicker" size="30"></p>
-		<p id="activity"> Activités : <select name="activity">
-			<option value="java">Java</option>
-			<option value="python">Python</option>
-			<option value="anglais">Anglais</option>
-			<option value="repos">Repos</option>
-			<option value="cafe">Café</option>
-			<option value="php">PHP</option>
-		</select>
-		</p>
 		
-		<div id="tableau">
-			<table id="activiter">
-				<tr><td><img id="drag1" src="../style/img/Java.png" draggable="true" ondragstart="drag(event)"></td></tr>
-				<tr><td><img id="drag2" src="../style/img/Php.png" draggable="true" ondragstart="drag(event)"></td></tr>
-				<tr><td><img id="drag3" src="../style/img/Python.png" draggable="true" ondragstart="drag(event)"></td></tr>
-				<tr><td><img id="drag4" src="../style/img/Anglais.png" draggable="true" ondragstart="drag(event)"></td></tr>
-				<tr><td><img id="drag5" src="../style/img/Repos.png" draggable="true" ondragstart="drag(event)"></td></tr>
-				<tr><td><img id="drag6" src="../style/img/Cafe.png" draggable="true" ondragstart="drag(event)"></td></tr>
-			</table>
-			
-			
-			<table id="horaire">
-				<tr>
-					<td> 8h00 </br> 9h00 </td>
-					<td id="ligner"><div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
-				</tr>
-				<tr>
-					<td> 9h00 </br> 10h00 </td>
-					<td id="ligner"><div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
-				</tr>
-				<tr>
-					<td> 10h00 </br> 11h00 </td>
-					<td id="ligner"><div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
-				</tr>
-				<tr>
-					<td> 11h00 </br> 12h00 </td>
-					<td id="ligner"><div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
-				</tr>
-				<tr>
-					<td> 12h00 </br> 13h00 </td>
-					<td id="ligner"><div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
-				</tr>
-				<tr>
-					<td> 13h00 </br> 14h00 </td>
-					<td id="ligner"><div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
-				</tr>
-				<tr>
-					<td> 14h00 </br> 15h00 </td>
-					<td id="ligner"><div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
-				</tr>
-				<tr>
-					<td> 15h00 </br> 16h00 </td>
-					<td id="ligner"><div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
-				</tr>
-				<tr>
-					<td> 16h00 </br> 17h00 </td>
-					<td id="ligner"><div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
-				</tr>
-				<tr>
-					<td> 17h00 </br> 18h00 </td>
-					<td id="ligner"><div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
-				</tr>
-				<tr>
-					<td> 18h00 </br> 19h00 </td>
-					<td id="ligner"><div id="div11" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
-				</tr>
-				<tr>
-					<td> 19h00 </br> 20h00 </td>
-					<td id="ligner"><div id="div12" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
-				</tr>
-			</table>
+		<p id="calendar">Date: <input type="text" id="datepicker" size="30"></p>
+		
+		<table id="activiter">
+			<tr><td><img id="java" src="../style/img/Java.png" draggable="true" ondragstart="drag(event)"></td></tr>
+			<tr><td><img id="php" src="../style/img/Php.png" draggable="true" ondragstart="drag(event)"></td></tr>
+			<tr><td><img id="python" src="../style/img/Python.png" draggable="true" ondragstart="drag(event)"></td></tr>
+			<tr><td><img id="anglais" src="../style/img/Anglais.png" draggable="true" ondragstart="drag(event)"></td></tr>
+			<tr><td><img id="repos" src="../style/img/Repos.png" draggable="true" ondragstart="drag(event)"></td></tr>
+			<tr><td><img id="cafe" src="../style/img/Cafe.png" draggable="true" ondragstart="drag(event)"></td></tr>
+		</table>
+		
+		<div id="legende">
+			<p>Déplacer les activités aux heures désirez</p>
+			<p>Cliquer sur une activité pour la supprimer</p>
 		</div>
-	<footer>
-	<p id="about-author">
-	Flavian Mary - Benoit Branchard - Ludovic Graveaud
-	</p>
-	</footer>
+		
+		<table id="horaire">
+			<tr>
+				<td> 8h00 </br> 9h00 </td>
+				<td id="ligner"><div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide1" src="../style/img/Vide.png" onclick="this.src='../style/img/Vide.png'"></div></td>
+			</tr>
+			<tr>
+				<td> 9h00 </br> 10h00 </td>
+				<td id="ligner"><div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide2" src="../style/img/Vide.png" onclick="this.src='../style/img/Vide.png'"></div></td>
+			</tr>
+			<tr>
+				<td> 10h00 </br> 11h00 </td>
+				<td id="ligner"><div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide3" src="../style/img/Vide.png" onclick="this.src='../style/img/Vide.png'"></div></td>
+			</tr>
+			<tr>
+				<td> 11h00 </br> 12h00 </td>
+				<td id="ligner"><div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide4" src="../style/img/Vide.png" onclick="this.src='../style/img/Vide.png'"></div></td>
+			</tr>
+			<tr>
+				<td> 12h00 </br> 13h00 </td>
+				<td id="ligner"><div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide5" src="../style/img/Vide.png" onclick="this.src='../style/img/Vide.png'"></div></td>
+			</tr>
+			<tr>
+				<td> 13h00 </br> 14h00 </td>
+				<td id="ligner"><div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide6" src="../style/img/Vide.png" onclick="this.src='../style/img/Vide.png'"></div></td>
+			</tr>
+			<tr>
+				<td> 14h00 </br> 15h00 </td>
+				<td id="ligner"><div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide7" src="../style/img/Vide.png" onclick="this.src='../style/img/Vide.png'"></div></td>
+			</tr>
+			<tr>
+				<td> 15h00 </br> 16h00 </td>
+				<td id="ligner"><div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide8" src="../style/img/Vide.png" onclick="this.src='../style/img/Vide.png'"></div></td>
+			</tr>
+			<tr>
+				<td> 16h00 </br> 17h00 </td>
+				<td id="ligner"><div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide9" src="../style/img/Vide.png" onclick="this.src='../style/img/Vide.png'"></div></td>
+			</tr>
+			<tr>
+				<td> 17h00 </br> 18h00 </td>
+				<td id="ligner"><div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide10" src="../style/img/Vide.png" onclick="this.src='../style/img/Vide.png'"></div></td>
+			</tr>
+			<tr>
+				<td> 18h00 </br> 19h00 </td>
+				<td id="ligner"><div id="div11" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide11" src="../style/img/Vide.png" onclick="this.src='../style/img/Vide.png'"></div></td>
+			</tr>
+			<tr>
+				<td> 19h00 </br> 20h00 </td>
+				<td id="ligner"><div id="div12" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide12" src="../style/img/Vide.png" onclick="this.src='../style/img/Vide.png'"></div></td>
+			</tr>
+		</table>
+		
+		<div id="valid-annul">
+			<input type="button" name="annul" value="Annuler" >
+			<input type="button" name="valid" value="Valider" >
+		</div>
 	</body>
+	<footer>
+		<p id="about-author">
+			Flavian Mary - Benoit Branchard - Ludovic Graveaud
+		</p>
+	</footer>
 </html>
