@@ -53,8 +53,8 @@ ALTER TABLE Hour ADD CONSTRAINT FK_Hour_IdA FOREIGN KEY (IdA) REFERENCES Activit
 #------------------------------------------------------------
 
 -- INSERT INTO Activity VALUES (1, 'Java');
--- INSERT INTO Activity VALUES (2, 'Python');
--- INSERT INTO Activity VALUES (3, 'Anglais');
--- INSERT INTO Activity VALUES (4, 'Repos');
--- INSERT INTO Activity VALUES (5, 'Café');
--- INSERT INTO Activity VALUES (6, 'PHP');
+-- INSERT INTO Activity VALUES (2, 'PHP');
+-- INSERT INTO Activity VALUES (3, 'Python');
+-- INSERT INTO Activity VALUES (4, 'Anglais');
+-- INSERT INTO Activity VALUES (5, 'Repos');
+-- INSERT INTO Activity VALUES (6, 'Café');

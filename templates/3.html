@@ -14,6 +14,13 @@
 	<body>
 		<script type="text/javascript">
 			
+			function MaFonction(){
+				if (confirm("Voulez-vous enregistrer ?")) {
+					window.location.replace("2.html"); 
+				}
+			}
+			
+			
 			var tom="../style/img/Vide.png";
 			
 			function allowDrop(ev) {
@@ -33,7 +40,8 @@
 				tom="../style/img/Vide.png";
 				
 			}
-			
+			</script>
+			<script type="text/javascript">
 			$(function() {
 				$( "#datepicker" ).datepicker({
 					altField: "#datepicker",
@@ -66,7 +74,7 @@
 			});
 		</script>
 		
-		<p id="calendar">Date: <input type="text" id="datepicker" size="30"></p>
+		<p id="calendar">Date: <input type="text" id="datepicker"></p>
 		
 		<table id="activiter">
 			<tr><td><img id="java" src="../style/img/Java.png" draggable="true" ondragstart="drag(event)"></td></tr>
@@ -146,8 +154,8 @@
 		</table>
 		
 		<div id="valid-annul">
-			<input type="button" name="annul" value="Annuler" >
-			<input type="button" name="valid" value="Valider" >
+			<input type="button" name="annul" value="Annuler" onclick="self.location.href='2.html'">
+			<input type="button" name="valid" value="Valider" onclick="javascript:MaFonction()">
 		</div>
 	</body>
 	<footer>

@@ -8,6 +8,9 @@
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 	</head>
+	<header>
+		<h1 id="title">Planning Manager</h1>
+	</header>
 	<body>
 <!--
 		<e?php
@@ -17,6 +20,30 @@
 			$lesDates = $donnees['DateD'];
 		?>
 -->
+			<script type="text/javascript">
+				var java = "../style/img/Java.png",
+					php = "../style/img/Php.png",
+					python = "../style/img/Python.png",
+					anglais = "../style/img/Anglais.png",
+					repos = "../style/img/Repos.png",
+					cafe = "../style/img/Cafe.png";
+				function place(heure) {
+					/*on recuper l'id l'activiter en fonction de l'heure
+					et on la met dans la variable
+					var activite=?*/
+					/*
+					A FAIRE
+					*/
+					var act=?;
+					if(act=1){return java;}
+					else if(act=2){return php;}
+					else if(act=3){return python;}
+					else if(act=4){return anglais;}
+					else if(act=5){return repos;}
+					else if(act=6){return cafe;}
+				}
+				
+			</script>
 			<script type="text/javascript">
 				$(function() {
 					$( "#datepicker" ).datepicker({
@@ -49,85 +76,91 @@
 					});
 				});
 			</script>
-		<header>
-		<h1 id="title">Planning Manager</h1>
-		</header>
 <!--
 		<e?php
 		while ($donnees = $reponse->fetch())
 		{
 		?>
 -->
-			<p>Date: <input type="text" id="datepicker" size="30"></p>
+			<p id="calendar">Date: <input type="text" id="datepicker"></p>
 <!--
 		<e?php
 		}
 		$reponse->closeCursor(); // Termine le traitement de la requête
 		?>
 -->
-		<p id="activity"> Activités : <select name="activity">
-			<option value="java">Java</option>
-			<option value="python">Python</option>
-			<option value="anglais">Anglais</option>
-			<option value="repos">Repos</option>
-			<option value="cafe">Café</option>
-			<option value="php">PHP</option>
-		</select>
-		</p>
-		<table id="horaires">
+			
+		<table id="horaire2">
 			<tr>
 				<td> 8h00 </br> 9h00 </td>
-				<td> </br> Java </td>
+				<td id="ligner"><div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide1" src="javascript:place(8)"></div></td>
 			</tr>
 			<tr>
 				<td> 9h00 </br> 10h00 </td>
-				<td> </br> Python </td>
+				<td id="ligner"><div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide2" src="javascript:place(9)"></div></td>
 			</tr>
 			<tr>
 				<td> 10h00 </br> 11h00 </td>
-				<td> </br> Anglais </td>
+				<td id="ligner"><div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide3" src="javascript:place(10)"></div></td>
 			</tr>
 			<tr>
 				<td> 11h00 </br> 12h00 </td>
-				<td> </br> Repos </td>
+				<td id="ligner"><div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide4" src="javascript:place(11)"></div></td>
 			</tr>
 			<tr>
 				<td> 12h00 </br> 13h00 </td>
-				<td> </br> Café </td>
+				<td id="ligner"><div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide5" src="javascript:place(12)"></div></td>
 			</tr>
 			<tr>
 				<td> 13h00 </br> 14h00 </td>
-				<td> </br> Repos </td>
+				<td id="ligner"><div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide6" src="javascript:place(13)"></div></td>
 			</tr>
 			<tr>
 				<td> 14h00 </br> 15h00 </td>
-				<td> </br> PHP </td>
+				<td id="ligner"><div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide7" src="javascript:place(14)"></div></td>
 			</tr>
 			<tr>
 				<td> 15h00 </br> 16h00 </td>
-				<td> </br> Java </td>
+				<td id="ligner"><div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide8" src="javascript:place(15)"></div></td>
 			</tr>
 			<tr>
 				<td> 16h00 </br> 17h00 </td>
-				<td> </br> Repos </td>
+				<td id="ligner"><div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide9" src="javascript:place(16)"></div></td>
 			</tr>
 			<tr>
 				<td> 17h00 </br> 18h00 </td>
-				<td> </br> Repos </td>
+				<td id="ligner"><div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide10" src="javascript:place(17)"></div></td>
 			</tr>
 			<tr>
 				<td> 18h00 </br> 19h00 </td>
-				<td> </br> Repos </td>
+				<td id="ligner"><div id="div11" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide11" src="javascript:place(18)"></div></td>
 			</tr>
 			<tr>
 				<td> 19h00 </br> 20h00 </td>
-				<td> </br> Repos </td>
+				<td id="ligner"><div id="div12" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<img id="vide12" src="javascript:place(19)"></div></td>
 			</tr>
 		</table>
-	<footer>
-	<p id="about-author">
-	Flavian Mary - Benoit Branchard - Ludovic Graveaud
-	</p>
-	</footer>
+		
+		<div id="modif">
+			<input type="button" name="modif" value="Modifier" onclick="self.location.href='3.html'">
+		</div>
+		
 	</body>
+	<footer>
+		<p id="about-author">
+			Flavian Mary - Benoit Branchard - Ludovic Graveaud
+		</p>
+	</footer>
 </html>

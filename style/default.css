@@ -469,6 +469,7 @@ input[type=text]:focus, input[type=password]:focus {
 	background-color:red;
 	
 }
+
 #calendar {
 	position: relative;
 	width: 204px;
@@ -476,6 +477,7 @@ input[type=text]:focus, input[type=password]:focus {
 	left :50%;
 	font: 20px 'Lucida Grande', Arial, sans-serif;
 }
+
 #calendar input {
 	width: 150px;
 	text-align: center;
@@ -483,7 +485,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 /*----------CSS de la modification-----------*/
 
-#horaire,#activiter { /* met tous les tableaux avec des bordures blanche */
+#horaire,#horaire2,#activiter { /* met tous les tableaux avec des bordures blanche */
 	border-collapse: collapse;
 	border-spacing: 0;
 	border-width:2px;
@@ -498,7 +500,7 @@ input[type=text]:focus, input[type=password]:focus {
 	height :300px;
 	margin-left:-152px;
 	margin-top:-150px;
-	left:25%;
+	left:20%;
 	top:50%;
 	
 }
@@ -519,10 +521,25 @@ input[type=text]:focus, input[type=password]:focus {
 	position:absolute;
 	width: 370px;
 	height :598px;
-	margin-left:-140px;
+	margin-left:-185px;
 	margin-top:-299px;
-	left:75%;
+	left:80%;
 	top:50%;
+}
+
+#horaire2 {
+	position:absolute;
+	width: 370px;
+	height :598px;
+	margin-left:-185px;
+	margin-top:-299px;
+	left:50%;
+	top:50%;
+}
+
+#horaire img,#horaire2 img {
+	width:300px;
+	height :45px;
 }
 
 #horaire td,#activiter td { /* Met les lignes des tableau en blanc */
@@ -536,7 +553,7 @@ input[type=text]:focus, input[type=password]:focus {
 	height :45px;
 }
 
-#div1,#div2,#div3,#div4,#div5,#div6,#div7,#div8,#div9,#div10,#div11,#div12,img,#activiter tr,#horaire #ligner {
+#div1,#div2,#div3,#div4,#div5,#div6,#div7,#div8,#div9,#div10,#div11,#div12,#activiter tr,#horaire #ligner,#horaire2 #ligner {
 	width:300px;
 	padding:0px;
 }
@@ -549,10 +566,19 @@ input[type=text]:focus, input[type=password]:focus {
 	margin-top:-20px;
 	left:50%;
 	top:90%;
-	
 }
 
-#valid-annul input {
+#modif {
+	position:absolute;
+	width: 122px;
+	height :40px;
+	margin-left:-61px;
+	margin-top:-20px;
+	left:50%;
+	top:90%;
+}
+
+#valid-annul input,#modif input {
 	font: 20px 'Lucida Grande', Arial, sans-serif;
 	width: 110px;
 	height :40px;
