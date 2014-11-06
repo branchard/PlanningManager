@@ -472,7 +472,8 @@ input[type=text]:focus, input[type=password]:focus {
 .ui-event, .ui-state-default{
 	background-color:red;
 }
-#ui-datepicker-div .ui-widget-header
+
+/*#ui-datepicker-div .ui-widget-header
 {
     border: 1px solid #B4B4B4;
     color: #B4B4B4;
@@ -491,4 +492,4 @@ input[type=text]:focus, input[type=password]:focus {
 
 #ui-datepicker-div .ui-widget-header a:hover {
     color: #B4B4B4;
-}
+}*/

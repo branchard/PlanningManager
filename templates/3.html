@@ -1,159 +1,149 @@
 <!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <title>Planning Manager</title>
-    <link rel="stylesheet" href="./style/default.css">
-        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" type="text/javascript"></script>
-</head>
-<body>
-<div class="wrapper">
-<header>
-    <h1 id="title"><a href="./">Planning Manager</a></h1>
-</header>
-<!-- Fin header.php -->
- 
-<script type="text/javascript">
-                $(function() {
-                $("#datepicker" ).datepicker({
-                beforeShowDay: function(date){
-                var b = (date.getDay() >0);
-                var c = "";
-                if (!b) {
-                    c = "ui-state-disabled";
-                }
-         
-                d = new Date(2014, 11, 24)
-                if ((date >= d) && (date <= d)) {
-                   c = "ui-event";
-                }
-                return [b, c];
-                }
-      });
-   });
-   </script>
- 
-    <section id="manager-section">
-        <div id="login-info">
-            <p>Bonjour Lara Durand</p>
- 
-            <p>[</p><a href="./logout.php">deconnection</a>
- 
-            <p>]</p>
-        </div>
-        vous avez des journées de définit        <form method="get" action="manager.php">
-            <p>
-                <label for="date">Veuillez selectionner une journée à afficher:</label>
-                <select name="displaydate" size="1">
-                    <OPTION>2014-11-28                </select>
-            </p>
- 
-            <p>
-                <button type="submit">Go</button>
-            </p>
-        </form>
-                <form method="post" action="manager.php">
-            <p>
-                <label for="date">Veuillez entrer une journée à inserer:</label>
-                <!--<input type="date" name="date">-->
-                <input type="date" id="datepicker" name="date"></p>
-            </p>
- 
-            <p>
-                <button type="submit">Go</button>
-            </p>
-        </form>
-    <p>Affichage du 2014-11-28</p><p>8h - Repos</p><p>9h - Repos</p><p>10h - Repos</p><p>11h - Repos</p><p>12h - Repos</p><p>13h - Repos</p><p>14h - Repos</p><p>15h - Repos</p><p>16h - Repos</p><p>17h - Repos</p><p>18h - Repos</p><p>19h - Repos</p> <p>20h - Repos</p>     </section>
-                <div class="push">
-                </div>
-                </div>
-                <footer>
-                        <div id="footer-container">
-                                <p id="about-author">
-                                        Flavian Mary - Benoit Branchard - Ludovic Graveaud
-                                </p>
-                        </div>
-                </footer>
-        </body>
-</html><!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <title>Planning Manager</title>
-    <link rel="stylesheet" href="./style/default.css">
-        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" type="text/javascript"></script>
-</head>
-<body>
-<div class="wrapper">
-<header>
-    <h1 id="title"><a href="./">Planning Manager</a></h1>
-</header>
-<!-- Fin header.php -->
- 
-<script type="text/javascript">
-                $(function() {
-                $("#datepicker" ).datepicker({
-                beforeShowDay: function(date){
-                var b = (date.getDay() >0);
-                var c = "";
-                if (!b) {
-                    c = "ui-state-disabled";
-                }
-         
-                d = new Date(2014, 11, 24)
-                if ((date >= d) && (date <= d)) {
-                   c = "ui-event";
-                }
-                return [b, c];
-                }
-      });
-   });
-   </script>
- 
-    <section id="manager-section">
-        <div id="login-info">
-            <p>Bonjour Lara Durand</p>
- 
-            <p>[</p><a href="./logout.php">deconnection</a>
- 
-            <p>]</p>
-        </div>
-        vous avez des journées de définit        <form method="get" action="manager.php">
-            <p>
-                <label for="date">Veuillez selectionner une journée à afficher:</label>
-                <select name="displaydate" size="1">
-                    <OPTION>2014-11-28                </select>
-            </p>
- 
-            <p>
-                <button type="submit">Go</button>
-            </p>
-        </form>
-                <form method="post" action="manager.php">
-            <p>
-                <label for="date">Veuillez entrer une journée à inserer:</label>
-                <!--<input type="date" name="date">-->
-                <input type="date" id="datepicker" name="date"></p>
-            </p>
- 
-            <p>
-                <button type="submit">Go</button>
-            </p>
-        </form>
-    <p>Affichage du 2014-11-28</p><p>8h - Repos</p><p>9h - Repos</p><p>10h - Repos</p><p>11h - Repos</p><p>12h - Repos</p><p>13h - Repos</p><p>14h - Repos</p><p>15h - Repos</p><p>16h - Repos</p><p>17h - Repos</p><p>18h - Repos</p><p>19h - Repos</p> <p>20h - Repos</p>     </section>
-                <div class="push">
-                </div>
-                </div>
-                <footer>
-                        <div id="footer-container">
-                                <p id="about-author">
-                                        Flavian Mary - Benoit Branchard - Ludovic Graveaud
-                                </p>
-                        </div>
-                </footer>
-        </body>
+	<head>
+		<meta charset="utf-8">
+		<title>Default template</title>
+		<link rel="stylesheet" href="../style/drapdrop.css">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function allowDrop(ev) {
+				ev.preventDefault();
+			}
+
+			function drag(ev) {
+				/*ev.dataTransfer.setData("text", ev.target.id);*/
+				var src = ev.target.getAttribute('src');
+				var id = ev.target.getAttribute('id');
+				event.dataTransfer.setData("text/html", '<img id="'+id+'"src="' + src + '" draggable="true" ondragstart="drag(event)"/>');
+			}
+
+			function drop(ev) {
+				ev.preventDefault();
+				/*var data = ev.dataTransfer.getData("text");
+				ev.target.appendChild(document.getElementById(data));*/
+				var mylist = document.getElementById(ev.target.getAttribute('id'));
+				mylist.style.visibility = "visible";
+				var html = ev.dataTransfer.getData("text/html");
+				mylist.innerHTML += html;
+				
+			}
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$( "#datepicker" ).datepicker({
+					altField: "#datepicker",
+					changeMonth: true,
+					changeYear: true,
+					closeText: 'Fermer',
+					prevText: 'Précédent',
+					nextText: 'Suivant',
+					currentText: 'Aujourd\'hui',
+					monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+					monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+					dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+					dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+					dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+					weekHeader: 'Sem.',
+					dateFormat: 'yy-mm-dd',
+					yearRange: "2014:2018",
+					firstDay: 1,
+					beforeShowDay: function(date){
+						var c = "";
+						var e = "Aucun évenement n'est prévu à cette date";
+						var d = new Date(2014, 10, 20)
+						if ((date >= d) && (date <= d)/* date in $lesDates*/) {
+							c = "ui-event";
+							e = "Des évenements sont prévus à cette date"
+						}
+						return [true,c,e];
+					}
+				});
+			});
+		</script>
+		<header>
+		<h1 id="title">Planning Manager</h1>
+		</header>
+			<p>Date: <input type="text" id="datepicker" size="30"></p>
+		<p id="activity"> Activités : <select name="activity">
+			<option value="java">Java</option>
+			<option value="python">Python</option>
+			<option value="anglais">Anglais</option>
+			<option value="repos">Repos</option>
+			<option value="cafe">Café</option>
+			<option value="php">PHP</option>
+		</select>
+		</p>
+		
+		<div id="tableau">
+			<table id="activiter">
+				<tr><td><img id="drag1" src="../style/img/Java.png" draggable="true" ondragstart="drag(event)"></td></tr>
+				<tr><td><img id="drag2" src="../style/img/Php.png" draggable="true" ondragstart="drag(event)"></td></tr>
+				<tr><td><img id="drag3" src="../style/img/Python.png" draggable="true" ondragstart="drag(event)"></td></tr>
+				<tr><td><img id="drag4" src="../style/img/Anglais.png" draggable="true" ondragstart="drag(event)"></td></tr>
+				<tr><td><img id="drag5" src="../style/img/Repos.png" draggable="true" ondragstart="drag(event)"></td></tr>
+				<tr><td><img id="drag6" src="../style/img/Cafe.png" draggable="true" ondragstart="drag(event)"></td></tr>
+			</table>
+			
+			
+			<table id="horaire">
+				<tr>
+					<td> 8h00 </br> 9h00 </td>
+					<td id="ligner"><div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+				</tr>
+				<tr>
+					<td> 9h00 </br> 10h00 </td>
+					<td id="ligner"><div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+				</tr>
+				<tr>
+					<td> 10h00 </br> 11h00 </td>
+					<td id="ligner"><div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+				</tr>
+				<tr>
+					<td> 11h00 </br> 12h00 </td>
+					<td id="ligner"><div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+				</tr>
+				<tr>
+					<td> 12h00 </br> 13h00 </td>
+					<td id="ligner"><div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+				</tr>
+				<tr>
+					<td> 13h00 </br> 14h00 </td>
+					<td id="ligner"><div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+				</tr>
+				<tr>
+					<td> 14h00 </br> 15h00 </td>
+					<td id="ligner"><div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+				</tr>
+				<tr>
+					<td> 15h00 </br> 16h00 </td>
+					<td id="ligner"><div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+				</tr>
+				<tr>
+					<td> 16h00 </br> 17h00 </td>
+					<td id="ligner"><div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+				</tr>
+				<tr>
+					<td> 17h00 </br> 18h00 </td>
+					<td id="ligner"><div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+				</tr>
+				<tr>
+					<td> 18h00 </br> 19h00 </td>
+					<td id="ligner"><div id="div11" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+				</tr>
+				<tr>
+					<td> 19h00 </br> 20h00 </td>
+					<td id="ligner"><div id="div12" ondrop="drop(event)" ondragover="allowDrop(event)"></div></td>
+				</tr>
+			</table>
+		</div>
+	<footer>
+	<p id="about-author">
+	Flavian Mary - Benoit Branchard - Ludovic Graveaud
+	</p>
+	</footer>
+	</body>
 </html>
