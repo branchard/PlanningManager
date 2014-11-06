@@ -6,32 +6,46 @@ require INCLUDES_PATH . 'connect.php';
 include INCLUDES_PATH . 'header.php';
 ?>
 
-<script type="text/javascript">
-                $(function() {
-                $("#datepicker" ).datepicker({
-                beforeShowDay: function(date){
-                var b = (date.getDay() >0);
-                var c = "";
-                if (!b) {
-                    c = "ui-state-disabled";
-                }
-         
-                d = new Date(2014, 11, 24)
-                if ((date >= d) && (date <= d)) {
-                    c = "ui-event";
-                }
-                return [b, c];
-                }
-      });
-   });
-   </script>
+
+   <script type="text/javascript">
+				$(function() {
+					$( "#datepicker" ).datepicker({
+						altField: "#datepicker",
+						changeMonth: true,
+						changeYear: true,
+						closeText: 'Fermer',
+						prevText: 'Précédent',
+						nextText: 'Suivant',
+						currentText: 'Aujourd\'hui',
+						monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+						monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+						dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+						dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+						dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+						weekHeader: 'Sem.',
+						dateFormat: 'yy-mm-dd',
+						yearRange: "2014:2018",
+						firstDay: 1,
+						beforeShowDay: function(date){
+							var c = "";
+							var e = "Aucun évenement n'est prévu à cette date";
+							var d = new Date(2014, 10, 20)
+							if ((date >= d) && (date <= d)/* date in $lesDates*/) {
+								c = "ui-event";
+								e = "Des évenements sont prévus à cette date"
+							}
+							return [true,c,e];
+						}
+					});
+				});
+			</script>
 
 <?php
 
 if (isset($_SESSION['id'])) {
     // CONSTANTES
-    define('DAYSTART', 8);//heure de commancement de la journée
-    define('DAYFINISH', 20);//heure de fin de journée
+    define('DAYSTART', 8);		//heure de commancement de la journée
+    define('DAYFINISH', 20);	//heure de fin de journée
 
 
    /* function datePickerInsert()
