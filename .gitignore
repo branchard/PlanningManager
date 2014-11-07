@@ -1,6 +1,6 @@
 # User specific & automatically generated files #
 #################################################
-/includes/database.php
+/core/database.php
 
 # IDE and editor specific files #
 #################################

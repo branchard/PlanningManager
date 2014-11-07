@@ -1,45 +1,46 @@
 <?php
 session_start();
-define('ROOT_PATH', './');
-define('INCLUDES_PATH', './includes/');
-if (!isset($_SESSION['id'])) {
-    include INCLUDES_PATH . 'header.php';
-     ?>
-    <section id="login-form-section">
-        <?php
-        if (isset($_GET['reason'])) {
-            echo '<div id="login_reason_info_wrapper"><p id="login_reason_info">';
-            switch ($_GET['reason']) {
-                case 'login_missed':
-                    echo 'Vous devez rentrer un login et un password';
-                    break;
-                case 'login_bad':
-                    echo 'Mauvais login ou password';
-                    break;
-                default:
-                    echo 'Erreur inconue';
-            }
-            echo '</p></div>';
-        }
-        ?>
-        <form id="main-login" method="post" action="login.php" class="login">
-            <p>
-                <label for="login">Username:</label>
-                <input type="text" name="login" id="login" placeholder="Jean"><!-- Faudrait que le place holder disparraisse au clic -->
-            </p>
+define('WEBROOT', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
+define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 
-            <p>
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password" placeholder="MotDePasse">
-            </p>
+require(ROOT . 'core/configure.php');
+require(ROOT . 'core/database.php');
+require(ROOT . 'core/connect.php');
+require(ROOT . 'core/model.php');
+require(ROOT . 'core/controller.php');
 
-            <p class="login-submit">
-                <button type="submit" class="login-button">Login</button>
-            </p>
-        </form>
-    </section>
-    <?php include INCLUDES_PATH . 'footer.php';
-} else {
-    header('Location: ./manager.php');
+$connectionObj = new connect();
+$connection = $connectionObj->getConnection();
+model::setConnection($connection);
+
+$params = explode('/', $_GET['p']);
+if ($params[0] == '')
+{
+    $params[0] = 'welcome';
 }
+$controller = $params[0];
+$action = isset($params[1]) ? $params[1] : 'index';
+if (file_exists(ROOT . 'controllers/' . $controller . '.php') && is_readable(ROOT . 'controllers/' . $controller . '.php'))
+{
+    require(ROOT . 'controllers/' . $controller . '.php');
+
+    $controller = new $controller();
+
+    if (method_exists($controller, $action))
+    {
+        unset($params[0]);
+        unset($params[1]);
+        call_user_func_array(array($controller, $action), $params);
+        //$controller->$action();
+    }
+    else
+    {
+        echo 'erreur 404';// il faudrait inclure un fichier d'erreur 404
+    }
+}
+else
+{
+    echo 'erreur 404';// il faudrait inclure un fichier d'erreur 404
+}
+
 ?>

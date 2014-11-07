@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Activity;
 
 CREATE TABLE User (
-  IdU           TINYINT      NOT NULL AUTO_INCREMENT,
+  IdU           INT      NOT NULL AUTO_INCREMENT,
   NomU          VARCHAR(40),
   PrenomU       VARCHAR(40),
   LoginU        VARCHAR(40)  NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE User (
 
 
 CREATE TABLE Activity (
-  IdA  TINYINT     NOT NULL,
+  IdA  INT     NOT NULL,
   NomA VARCHAR(40) NOT NULL,
   PRIMARY KEY (IdA)
 )
@@ -26,9 +26,9 @@ CREATE TABLE Activity (
 
 
 CREATE TABLE Day (
-  IdD   TINYINT NOT NULL AUTO_INCREMENT,
+  IdD   INT NOT NULL AUTO_INCREMENT,
   DateD DATE    NOT NULL,
-  IdU   TINYINT NOT NULL,
+  IdU   INT NOT NULL,
   PRIMARY KEY (IdD),
   INDEX (DateD)
 )
@@ -36,10 +36,10 @@ CREATE TABLE Day (
 
 
 CREATE TABLE Hour (
-  IdH TINYINT NOT NULL AUTO_INCREMENT,
-  NmH TINYINT NOT NULL,
-  IdD TINYINT NOT NULL,
-  IdA TINYINT NOT NULL,
+  IdH INT NOT NULL AUTO_INCREMENT,
+  NmH INT NOT NULL,
+  IdD INT NOT NULL,
+  IdA INT NOT NULL,
   PRIMARY KEY (IdH)
 )
   ENGINE =InnoDB;
@@ -52,9 +52,9 @@ ALTER TABLE Hour ADD CONSTRAINT FK_Hour_IdA FOREIGN KEY (IdA) REFERENCES Activit
 #        INSERT
 #------------------------------------------------------------
 
--- INSERT INTO Activity VALUES (1, 'Java');
--- INSERT INTO Activity VALUES (2, 'Python');
--- INSERT INTO Activity VALUES (3, 'Anglais');
--- INSERT INTO Activity VALUES (4, 'Repos');
--- INSERT INTO Activity VALUES (5, 'Café');
--- INSERT INTO Activity VALUES (6, 'PHP');
+INSERT INTO Activity VALUES (1, 'Java');
+INSERT INTO Activity VALUES (2, 'Python');
+INSERT INTO Activity VALUES (3, 'Anglais');
+INSERT INTO Activity VALUES (4, 'Repos');
+INSERT INTO Activity VALUES (5, 'Café');
+INSERT INTO Activity VALUES (6, 'PHP');
