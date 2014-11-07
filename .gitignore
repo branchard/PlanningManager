@@ -1,10 +1,10 @@
 # User specific & automatically generated files #
 #################################################
-/core/database.php
+./core/database.php
 
 # IDE and editor specific files #
 #################################
-/nbproject
+./nbproject
 .idea
 
 # OS generated files #

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Gestion de planning">
     <meta name="author" content="Benoit Branchard - Ludovic Graveaud - Flavian Mary">
+    <link rel="icon" href="<?php echo WEBROOT . 'favicon.ico'; ?>" />
 
     <title><?php
         if (isset($title))
@@ -48,9 +49,18 @@
     </header>
     <section class="container">
         <?php echo $content_for_layout; ?>
-        <?php if(Configure::$debug_mode === 2): ?>
+        <?php if (Configure::$debug_mode === 2): ?>
             <h2>Debug :</h2>
-            <?php var_dump($_SESSION) ?>
+            <pre><?php
+                echo '$_SESSION'."\n";
+                var_dump($_SESSION);
+                echo "\n";
+                echo '$_GET'."\n";
+                var_dump($_GET);
+                echo "\n";
+                echo '$_POST'."\n";
+                var_dump($_POST);
+                ?></pre>
         <?php endif; ?>
     </section>
 

@@ -34,12 +34,14 @@ class manager extends Controller
             {
                 if (!$this->Day->is_valide_date($_GET['date']))
                 {
-                    $d['dateerror'] = 'Vous ne pouvez pas afficher une date non valide';
+                    $d['dateerror'] = 'Vous ne pouvez pas afficher une date non valide, la date doir être au format (YYYY-MM-DD)';
                 }
                 else
                 {// tout est OK
                     $date = new DateTime($_GET['date']);
-                    $this->Day->getDay($date, $this->User->getId());
+                    $d['day'] = $this->Day->getDay($date, $this->User->getId());
+                    $d['date'] = $_GET['date'];
+                    $d['activities'] = $this->Day->getActivitiesList();
                 }
             }
         }

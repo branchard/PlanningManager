@@ -30,22 +30,25 @@ class day extends Model
         $datestr = $date->format('Y-m-d');
         if (count($this->find(array('conditions' => 'DateD = \'' . $datestr . '\'' . 'AND IdU = ' . $idUser))) == 0)// vérifie si le day est déja présent
         {
-            echo '----- le jour n\'existe pas';
+            //echo '----- le jour n\'existe pas';
             $this->createDate($date, $idUser);
         }
-        else{
-            echo '----- le jour existe';
+        else
+        {
+            //echo '----- le jour existe';
         }
         // on affiche le jour
         $idd = $this->find(array('conditions' => 'DateD = \'' . $datestr . '\'' . 'AND IdU = ' . $idUser))[0]['IdD'];
-        print_r($this->find(array('conditions' => 'DateD = \'' . $datestr . '\'' . 'AND IdU = ' . $idUser)));
-        echo $idd;
         $connection = model::$connection;
-        $stmt = $connection->prepare('select NomA, NmH from Activity natural join  Hour where IdD = ?');
+        $stmt = $connection->prepare('SELECT NomA, NmH FROM Activity NATURAL JOIN  Hour WHERE IdD = ?');
         $stmt->execute(array($idd));
-        while ($row = $stmt->fetch()) {
-            echo '<p>'.$row['NmH'].'h - '.$row['NomA'].'</p>';
+        $d = array();
+        while ($row = $stmt->fetch())
+        {
+            $d[$row['NmH']] = $row['NomA'];
         }
+        //print_r($d);
+        return $d;// retourne un tableau où la clé est l'heure et la valeur est l'activité
     }
 
     private function createDate(DateTime $date, $idu)
@@ -56,7 +59,6 @@ class day extends Model
         $dateFormat = $date->format('Y-m-d');
         $stmt1 = $connection->prepare('INSERT INTO Day(DateD, IdU) VALUES (?, ?)');
         $stmt1->execute(array($dateFormat, $idu));// on crée la journée
-        echo $dateFormat;
 
         $currentHour = $daystart;// on va remplire la journée de repos
 
@@ -80,4 +82,16 @@ class day extends Model
         }
     }
 
+    function getActivitiesList()
+    {
+        $connection = model::$connection;
+        $stmt = $connection->prepare('SELECT NomA, IdA FROM Activity');
+        $stmt->execute();
+        $d = array();
+        while ($row = $stmt->fetch())
+        {
+            $d[$row['IdA']] = $row['NomA'];
+        }
+        return $d;
+    }
 }
