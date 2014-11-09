@@ -24,6 +24,8 @@
     <!-- Bootstrap Twitter Core CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo WEBROOT . 'style/bootstrap.css'; ?>"/>
     <link rel="stylesheet" type="text/css" href="<?php echo WEBROOT . 'style/bootstrap-theme.css'; ?>"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo WEBROOT . 'style/datepicker3.css'; ?>"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo WEBROOT . 'style/chosen.css'; ?>"/>
     <link rel="stylesheet" type="text/css" href="<?php echo WEBROOT . 'style/default.css'; ?>"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,6 +36,7 @@
     <![endif]-->
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo WEBROOT . 'scripts/chosen.jquery.js'; ?>"></script>
     <script type="text/javascript" src="<?php echo WEBROOT . 'scripts/bootstrap.js'; ?>"></script>
 
 </head>
@@ -52,6 +55,9 @@
         <?php if (Configure::$debug_mode === 2): ?>
             <h2>Debug :</h2>
             <pre><?php
+                echo 'DEBUG'."\n";
+                var_dump($GLOBALS['DEBUG']);
+                echo "\n";
                 echo '$_SESSION'."\n";
                 var_dump($_SESSION);
                 echo "\n";
@@ -72,5 +78,8 @@
         </p>
     </div>
 </footer>
+<script type="text/javascript" >
+    $(".chosen-select").chosen()
+</script>
 </body>
 </html>

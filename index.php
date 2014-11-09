@@ -2,6 +2,7 @@
 session_start();
 define('WEBROOT', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
+$GLOBALS['DEBUG'] = array("DEBUG START !");
 
 require(ROOT . 'core/configure.php');
 require(ROOT . 'core/database.php');
@@ -14,19 +15,19 @@ $connection = $connectionObj->getConnection();
 model::setConnection($connection);
 
 $params = explode('/', $_GET['p']);
-if ($params[0] == '')
+if($params[0] == '')
 {
     $params[0] = 'welcome';
 }
 $controller = $params[0];
 $action = isset($params[1]) ? $params[1] : 'index';
-if (file_exists(ROOT . 'controllers/' . $controller . '.php') && is_readable(ROOT . 'controllers/' . $controller . '.php'))
+if(file_exists(ROOT . 'controllers/' . $controller . '.php') && is_readable(ROOT . 'controllers/' . $controller . '.php'))
 {
     require(ROOT . 'controllers/' . $controller . '.php');
 
     $controller = new $controller();
 
-    if (method_exists($controller, $action))
+    if(method_exists($controller, $action))
     {
         unset($params[0]);
         unset($params[1]);

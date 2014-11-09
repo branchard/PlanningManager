@@ -122,16 +122,10 @@ class Model
         return $d;
     }
 
-    public function del($id = null)
+    /*public function del($id = null)
     {
-        if ($id == null)
-        {
-            $id = $this->_id;
-        }
 
-        $sql = "DELETE FROM " . $this->_table . " WHERE id=$id";
-        mysql_query($sql) or die(mysql_errno());
-    }
+    }*/
 
     static function load($name)
     {
