@@ -36,7 +36,7 @@ class Model
         }
     }
 
-    public function save($data)
+    public function save($data)// à refaire, c'est un peut le bordel cette fonction
     {
         if (isset($data["id"]) && !empty($data["id"]))
         {

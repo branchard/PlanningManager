@@ -31,7 +31,8 @@
 
                     <div id="sandbox-container">
                         <div class="input-group date">
-                            <input type="text" name="date" class="form-control" id="inputdate" placeholder="Choisie une date ..."><span
+                            <input type="text" name="date" class="form-control" id="inputdate"
+                                   placeholder="Choisie une date ..."><span
                                 class="input-group-addon"><i
                                     class="glyphicon glyphicon-th"></i></span>
                         </div>
@@ -43,21 +44,8 @@
                             autoclose: true,
                             todayBtn: "linked",
                             todayHighlight: true,
-                            orientation: "top left",
-                            beforeShowDay: function (date) {
-                                if (date.getMonth() == (new Date()).getMonth())
-                                    switch (date.getDate()) {
-                                        case 4:
-                                            return {
-                                                tooltip: 'Example tooltip',
-                                                classes: 'active'
-                                            };
-                                        case 9:
-                                            return false;
-                                        case 12:
-                                            return "green";
-                                    }
-                            }
+                            orientation: "top left"
+
                         });
                     </script>
                 </div>
@@ -97,7 +85,8 @@
         <form action="<?php echo WEBROOT; ?>manager?date=<?php echo $date; ?>#activity-list" method="post">
             <div class="form-group">
                 <label for="hour_modification">Heure</label>
-                <select data-placeholder="Choisie une heure ..." name="hour_modification" size="1" id="hour_modification" class="form-control chosen-select">
+                <select data-placeholder="Choisie une heure ..." name="hour_modification" size="1"
+                        id="hour_modification" class="form-control chosen-select">
                     <option></option>
                     <?php
                     foreach($day as $k => $v)
@@ -109,7 +98,8 @@
             </div>
             <div class="form-group">
                 <label for="activity_modification">Activité</label>
-                <select data-placeholder="Choisie une activité ..." name="activity_modification" size="1" id="activity_modification" class="form-control chosen-select">
+                <select data-placeholder="Choisie une activité ..." name="activity_modification" size="1"
+                        id="activity_modification" class="form-control chosen-select">
                     <option></option>
                     <?php
                     foreach($activities as $k => $v)
